@@ -1,0 +1,38 @@
+#content1, #content2 {
+    display: none;
+    
+}
+.button{
+    color: rgb(89, 0, 255);
+    background-color: rgb(225, 11, 76);
+    width: 25%;
+    aspect-ratio: 5 / 1;
+    margin: 0 4%; 
+    border-radius: 8px;
+    font-size: 5vw;
+}
+#butopa{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+   
+}
+body{
+    background: rgb(277, 38, 54);
+}
+.pyt{
+    color: rgb(115, 14, 133);
+    font-size: 5vw;
+    font-size: 5vw;
+   
+}
+#question{
+    margin-top: 15%;
+}
+#wiersz{
+    display: none;
+}
+#zap{
+    display: block;
+}
+

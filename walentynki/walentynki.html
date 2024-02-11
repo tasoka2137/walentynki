@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="walentynki.css">
+    <title>Walentynki</title>
+    
+</head>
+<body>
+    <div id="question">
+        <center><p class="pyt">Czy chcesz zobaczyć zawartość 1?</p></center>
+        <div id="butopa">
+        <button class="button" onclick="showContent(1)">Tak</button>
+        <button class="button" onclick="showContent(0)">Nie</button>
+        </div>
+    </div>
+
+    <div id="content1">
+       <div id="zap">
+       <center><p class="pyt">Wróć tu w w</p></center>
+
+       </div>
+       <div id="wiersz">
+        <center><p class="pyt">14</p></center>
+
+       </div>
+    </div>
+
+    <div id="content2">
+    
+        <center><p class="pyt">);</p></center>
+    </div>
+
+    <script>
+        
+        // Sprawdzenie, czy użytkownik już odpowiedział na pytanie
+        const answered = localStorage.getItem('answered');
+
+        if (answered === '1') {
+            showContent(1); // Jeśli już odpowiedział, pokaż zawartość bez pytania
+        } else if (answered === '0') {
+            showContent(0); // Jeśli już odpowiedział "Nie", pokaż drugą zawartość
+        }
+
+        function showContent(choice) {
+            // Ukrycie pytania
+            document.getElementById('question').style.display = 'none';
+            
+            if (choice === 1) {
+                document.getElementById('content1').style.display = 'block';
+            } else {
+                document.getElementById('content2').style.display = 'block';
+            }
+
+            // Zapisanie informacji o odpowiedzi użytkownika
+            localStorage.setItem('answered', choice);
+            // Funkcja sprawdzająca, czy mamy 14 lutego o 6:00
+        function checkDateTime() {
+            var targetDate = new Date('February 11, 2024 18:16:00');
+            var currentDate = new Date();
+
+            if (currentDate.getTime() >= targetDate.getTime()) {
+                document.getElementById('wiersz').style.display = 'block';
+                document.getElementById('zap').style.display = 'none';
+            }
+        }
+
+        // Wywołanie funkcji checkDateTime() co sekundę w celu ciągłego sprawdzania daty i godziny
+        setInterval(checkDateTime, 10);
+        }
+    </script>
+</body>
+</html>
